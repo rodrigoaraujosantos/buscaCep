@@ -1,0 +1,25 @@
+<div class="via-cep">
+  <h1>Aplicação Via Cep</h1>
+  <form [formGroup]="localCepForm" (ngSubmit)="recebendoCepHtml()" *ngIf="gInformacoes == undefined">
+    <mat-form-field class="width">
+      <mat-label>Informe o CEP</mat-label>
+      <input matInput placeholder="Ex. 04364-030" formControlName="cep">
+    </mat-form-field>
+    <button class="width" mat-flat-button color="accent" matTooltip="Procurar Cep" [disabled]="localCepForm.invalid">
+      <mat-icon>search</mat-icon>
+    </button>
+  </form>
+  <div class="informacoes">
+    <p *ngIf="gInformacoes != undefined">Rua: {{gInformacoes.logradouro}}</p>
+    <p *ngIf="gInformacoes != undefined">Bairro: {{gInformacoes.bairro}}</p>
+    <p *ngIf="gInformacoes != undefined">Cidade: {{gInformacoes.localidade}}</p>
+    <p *ngIf="gInformacoes != undefined">Estado: {{gInformacoes.uf}}</p>
+  </div>
+  
+  <button (click)="clearCep()">New Search</button>
+
+</div>
+
+
+
+
